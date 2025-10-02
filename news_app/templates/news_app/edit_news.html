@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_block %}
+<div class="container py-4">
+    <h2>Chỉnh sửa Tin tức: {{ news.title }}</h2>
+    <hr>
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        {{ form.as_p }} 
+        
+        <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
+        <a href="{% url 'news_detail' news.id %}" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>
+{% endblock %}

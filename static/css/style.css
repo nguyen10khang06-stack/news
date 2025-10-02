@@ -1,0 +1,325 @@
+/**********************************/
+/********** General CSS ***********/
+/**********************************/
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: #f0f2f5;
+    color: #333;
+    margin: 0;
+    line-height: 1.6;
+}
+
+a {
+    color: #ff6f61;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #ff3d00;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color: #222;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+
+p {
+    color: #555;
+}
+
+/**********************************/
+/********* Buttons CSS ***********/
+/**********************************/
+button.btn, .btn {
+    border-radius: 30px;
+    padding: 10px 25px;
+    border: none;
+    background: linear-gradient(135deg, #ff6f61, #ff3d00);
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
+    transition: all 0.3s ease;
+}
+
+button.btn:hover, .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 61, 0, 0.5);
+}
+
+/**********************************/
+/********* Header CSS *************/
+/**********************************/
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    flex-wrap: wrap;
+}
+
+.top-header .logo img {
+    max-height: 60px;
+}
+
+.top-header .search {
+    flex: 1;
+    position: relative;
+    margin: 0 30px;
+}
+
+.top-header .search input {
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    transition: all 0.3s;
+}
+
+.top-header .search input:focus {
+    border-color: #ff6f61;
+    box-shadow: 0 0 10px rgba(255,111,97,0.3);
+}
+
+.top-header .search button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ff6f61;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-header .search button:hover {
+    background: #ff3d00;
+}
+
+/**********************************/
+/********* Navbar CSS *************/
+/**********************************/
+.header {
+    background: #222;
+    padding: 10px 50px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.header .navbar-nav .nav-link {
+    color: #fff;
+    margin: 0 10px;
+    padding: 8px 15px;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.header .navbar-nav .nav-link:hover,
+.header .navbar-nav .nav-link.active {
+    background: linear-gradient(90deg, #ff6f61, #ff3d00);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/**********************************/
+/********** Top News CSS **********/
+/**********************************/
+.top-news .card {
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.top-news .card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s, filter 0.5s;
+}
+
+.top-news .card:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.8);
+}
+
+.top-news .card-body {
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 100%);
+    color: #fff;
+    padding: 20px;
+}
+
+.top-news .card-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.top-news .card-text {
+    font-size: 16px;
+    color: #eee;
+}
+
+/**********************************/
+/********* Category News **********/
+/**********************************/
+.cat-news .card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.cat-news .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.cat-news img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.4s, filter 0.4s;
+}
+
+.cat-news img:hover {
+    transform: scale(1.05);
+    filter: brightness(0.7);
+}
+
+/**********************************/
+/********** Main News CSS *********/
+/**********************************/
+.main-news .card {
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.main-news .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.main-news img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/**********************************/
+/*********** Sidebar CSS **********/
+/**********************************/
+.sidebar .sidebar-widget {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.sidebar h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #ff6f61;
+}
+
+.sidebar a {
+    color: #222;
+    transition: all 0.3s;
+}
+
+.sidebar a:hover {
+    color: #ff3d00;
+}
+
+.sidebar .tags a {
+    background: #f4f4f4;
+    color: #222;
+    border-radius: 8px;
+    margin: 3px 3px 3px 0;
+    padding: 5px 10px;
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+.sidebar .tags a:hover {
+    background: #ff6f61;
+    color: #fff;
+}
+
+/**********************************/
+/********** Contact CSS ***********/
+/**********************************/
+.contact input, .contact textarea {
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.contact .social a {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #fff;
+    color: #ff6f61;
+    transition: all 0.3s;
+}
+
+.contact .social a:hover {
+    background: #ff6f61;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/**********************************/
+/********** Footer CSS ************/
+/**********************************/
+.footer {
+    background: #222;
+    color: #fff;
+    padding: 60px 50px;
+}
+
+.footer a {
+    color: #ff6f61;
+    transition: all 0.3s;
+}
+
+.footer a:hover {
+    color: #ff3d00;
+}
+
+.footer .social a {
+    background: #333;
+    color: #ff6f61;
+    margin-right: 10px;
+}
+
+.footer .social a:hover {
+    background: #ff3d00;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/**********************************/
+/******** Footer Bottom CSS *******/
+/**********************************/
+.footer-bottom {
+    background: #111;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+}
