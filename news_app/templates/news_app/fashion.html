@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block body_block %}
+
+<div class="container mt-4">
+    <h1 class="mb-4 text-danger"><i class="fas fa-tshirt"></i> Tin Thời Trang</h1>
+
+    <!-- Tin nổi bật -->
+    {% if top_fashion %}
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <div class="card">
+                <img src="{{ top_fashion.image_url }}" class="card-img-top" alt="{{ top_fashion.title }}">
+                <div class="card-body">
+                    <h3 class="card-title">{{ top_fashion.title }}</h3>
+                    <p class="card-text">{{ top_fashion.summary|default:top_fashion.content|truncatewords:30 }}</p>
+                    <a href="{% url 'news_detail' top_fashion.id %}" class="btn btn-danger">Đọc tiếp</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <h4 class="mb-3">Tin nhanh</h4>
+            <ul class="list-group">
+                {% for news in quick_fashion %}
+                <li class="list-group-item">
+                    <a href="{% url 'news_detail' news.id %}">{{ news.title }}</a>
+                </li>
+                {% empty %}
+                <li class="list-group-item">Chưa có tin nhanh</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Các tin khác -->
+    <h2 class="mb-3">Các tin thời trang khác</h2>
+    <div class="row">
+        {% for news in other_fashion %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="{{ news.image_url }}" class="card-img-top" alt="{{ news.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ news.title }}</h5>
+                    <p class="card-text">{{ news.summary|default:news.content|truncatewords:20 }}</p>
+                </div>
+                <div class="card-footer text-muted">
+                    <small><i class="far fa-clock"></i> {{ news.created_at|date:"d-m-Y" }}</small>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>Chưa có tin thời trang nào.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

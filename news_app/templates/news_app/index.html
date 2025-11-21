@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_block %}
+
+<div class="top-news py-4">
+    <div class="container-fluid">
+        <h2 class="mb-3"><i class="fas fa-bolt"></i> Top News</h2>
+        <div class="row">
+            {% for news in top_news %}
+            <div class="col-md-6 mb-3">
+                <div class="tn-img">
+                    {% if news.image %}
+                    <img src="{{ news.image.url }}" alt="{{ news.title }}" class="img-fluid">
+                    {% else %}
+                    <img src="{% static 'img/no-image.jpg' %}" alt="{{ news.title }}" class="img-fluid">
+                    {% endif %}
+
+                    <div class="tn-content">
+                        <h5><a href="{% url 'news_detail' news.id %}">{{ news.title }}</a></h5>
+                        <small><i class="far fa-clock"></i> {{ news.created_at|date:"d M Y" }}</small>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>No top news available.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="cat-news py-4">
+    <div class="container-fluid">
+        <h2 class="mb-3"><i class="fas fa-th-list"></i> Categories</h2>
+        <div class="row">
+            {% for category in categories %}
+            <div class="col-md-6 mb-4">
+                <h4 class="mb-2">{{ category.name }}</h4>
+                <div class="row">
+                    {% for news in category.news_set.all|slice:":3" %}
+                    <div class="col-md-6 mb-3">
+                        <div class="cn-img">
+                            {% if news.image %}
+                            <img src="{{ news.image.url }}" alt="{{ news.title }}" class="img-fluid">
+                            {% else %}
+                            <img src="{% static 'img/no-image.jpg' %}" alt="{{ news.title }}" class="img-fluid">
+                            {% endif %}
+
+                            <div class="cn-content">
+                                <a href="{% url 'news_detail' news.id %}">{{ news.title }}</a>
+                                <p><small><i class="far fa-clock"></i> {{ news.created_at|date:"d M Y" }}</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p>No news in this category.</p>
+                    {% endfor %}
+                </div>
+            </div>
+            {% empty %}
+            <p>No categories available.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="main-news py-4">
+    <div class="container-fluid">
+        <h2 class="mb-3"><i class="fas fa-clock"></i> Latest News</h2>
+        <div class="row">
+            {% for news in latest_news %}
+            <div class="col-lg-4 mb-4">
+                <div class="mn-img">
+                    {% if news.image %}
+                    <img src="{{ news.image.url }}" alt="{{ news.title }}" class="img-fluid">
+                    {% else %}
+                    <img src="{% static 'img/no-image.jpg' %}" alt="{{ news.title }}" class="img-fluid">
+                    {% endif %}
+                </div>
+                <div class="mn-content">
+                    <h5><a href="{% url 'news_detail' news.id %}">{{ news.title }}</a></h5>
+                    <p>{{ news.content|truncatewords:20 }}</p> <small><i class="far fa-clock"></i> {{ news.created_at|date:"d M Y" }}</small>
+                </div>
+            </div>
+            {% empty %}
+            <p>No latest news found.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="main-news py-4 bg-light">
+    <div class="container-fluid">
+        <h2 class="mb-3"><i class="fas fa-fire"></i> Popular News</h2>
+        <div class="row">
+            {% for news in popular_news %}
+            <div class="col-lg-3 col-md-4 mb-4">
+                <div class="mn-list">
+                    <div class="mn-img">
+                        {% if news.image %}
+                        <img src="{{ news.image.url }}" alt="{{ news.title }}" class="img-fluid">
+                        {% else %}
+                        <img src="{% static 'img/no-image.jpg' %}" alt="{{ news.title }}" class="img-fluid">
+                        {% endif %}
+                    </div>
+                    <div class="mn-content">
+                        <a href="{% url 'news_detail' news.id %}">{{ news.title }}</a>
+                        <small><i class="far fa-eye"></i> {{ news.views }} views</small>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>No popular news found.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
